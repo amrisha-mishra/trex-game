@@ -120,6 +120,8 @@ function draw() {
   }
   //displaying the score
   text(score, 300, 100);
+    //displaying the higscore
+  text("highscore "+ highscore,100,100);
   //giving properties that we want throughout the whole game
   trex.collide(invisibleGround);
   drawSprites();
