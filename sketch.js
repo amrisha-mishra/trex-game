@@ -1,4 +1,6 @@
-var trex, trex_animation, ground, invisibleGround, cloudimage, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6, cloudsgrp, cactusgrp, score, PLAY, END, gamestate, restart_image, restart, gameover_image, gameover, trex_collided;
+var trex, trex_animation, ground, invisibleGround, cloudimage, obstacle1, obstacle2, obstacle3,
+    obstacle4, obstacle5, obstacle6, cloudsgrp, cactusgrp, score, PLAY, END, gamestate, restart_image, 
+    restart, gameover_image, gameover, trex_collided,highscore;
 
 function preload() {
   trex_animation = loadAnimation("trex1.png", "trex3.png", "trex4.png");
@@ -49,6 +51,8 @@ function setup() {
 
   //declaring initial value for score
   score = 0;
+  //declaring initial value for highscore
+  highscore = 0;
   //declaring constant values for gamestates
   PLAY = 1;
   END = 0;
@@ -101,6 +105,9 @@ function draw() {
     restart.visible = true;
     gameover.visible = true;
     trex.changeAnimation("t2", trex_collided);
+    if (score>highscore){
+      highscore = score;
+    }
   }
   if (mousePressedOver(restart)) {
     gameover.visible = false;
